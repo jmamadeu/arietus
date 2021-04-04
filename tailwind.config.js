@@ -32,6 +32,7 @@ module.exports = {
           lines: '#e1e3e5',
           background: '#f0f2f5',
           box: '#fcfdff',
+          complement: '#ECEEF0',
         },
       },
     },
