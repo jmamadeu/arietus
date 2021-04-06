@@ -1,12 +1,9 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 import { Input } from '../components';
 
-export default function Home() {
-  const router = useRouter();
-
+export default function SignUp() {
   return (
     <div>
       <Head>
@@ -19,7 +16,9 @@ export default function Home() {
           <h1 className='font-body font-bold text-2xl text-primary-main'>
             Health Consultation
           </h1>
-          <small className='text-texts-secondary'>Faça seu login aqui!</small>
+          <small className='text-texts-secondary'>
+            Cria uma conta rapidamente!
+          </small>
           <br />
           <br />
 
@@ -29,22 +28,30 @@ export default function Home() {
                 name='email'
                 label='Insira seu endereço de e-mail'
                 placeholder='your@example.com'
-                // className='mt-4'
               />
+              <br />
+              <br />
+              <Input
+                name='identityNumber'
+                type='text'
+                label='Insira seu nome ou da sua empresa'
+                placeholder='Example Example'
+              />
+
               <br />
               <br />
               <Input
                 name='password'
                 type='password'
-                label='Insira uma palavra passe'
-                placeholder='142rwrq'
+                label='Sua melhor palavra passe'
+                placeholder='32rshw23i'
               />
 
               <br />
               <small>
-                <Link href='/signup'>
+                <Link href='/'>
                   <a className='text-primary-main underline'>
-                    Não tenho uma conta.
+                    Já possuo uma conta.
                   </a>
                 </Link>
               </small>
@@ -56,12 +63,14 @@ export default function Home() {
                 className='w-44 font-title h-14 bg-shapes-lines font-bold text-sm uppercase text-texts-secondary
               hover:bg-shapes-complement rounded-md transition duration-150
               outline-none focus:outline-none'
-                onClick={() => {
-                  router.push('/dashboard');
-                }}
               >
-                Entrar
+                Criar Conta
               </button>
+              <br />
+              <small className='text-texts-secondary'>
+                Ao criar uma conta, você concorda com os termos de uso e
+                políticas de privacidade.
+              </small>
             </form>
           </div>
         </div>

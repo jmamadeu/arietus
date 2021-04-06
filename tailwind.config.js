@@ -12,6 +12,7 @@ module.exports = {
         primary: {
           default: '#41414c',
           main: '#f1972c',
+          mainLight: '#FA9C2D',
         },
 
         secondary: {
@@ -33,6 +34,7 @@ module.exports = {
           background: '#f0f2f5',
           box: '#fcfdff',
           complement: '#ECEEF0',
+          line: '#4F4F5B',
         },
       },
     },
