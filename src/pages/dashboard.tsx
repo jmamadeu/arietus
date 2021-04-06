@@ -3,7 +3,29 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
+import { FiPlus } from 'react-icons/fi';
+
 import { Input } from '../components';
+import { type } from 'os';
+
+type SumaryBadgeProps = {
+  numberTotal: number;
+  title: string;
+};
+
+const SumaryBadge = ({ numberTotal, title }: SumaryBadgeProps) => {
+  return (
+    <>
+      <span className='mr-4 text-texts-complement font-body text-base'>
+        <strong className='text-shapes-box font-bold font-body text-2xl'>
+          {numberTotal}
+        </strong>
+        <br />
+        {title}
+      </span>
+    </>
+  );
+};
 
 export default function Home() {
   const router = useRouter();
@@ -40,6 +62,23 @@ export default function Home() {
             </div>
 
             <div style={{ height: 1 }} className='w-full bg-shapes-line '></div>
+
+            <div className='flex justify-between mt-4 items-center'>
+              <div className='flex'>
+                <SumaryBadge numberTotal={12} title='Consultas no total' />
+                <SumaryBadge numberTotal={7} title='Em Andamento' />
+                <SumaryBadge numberTotal={5} title='Encerrados' />
+              </div>
+              <div>
+                <button className='bg-primary-main rounded-md hover:bg-primary-mainLight p-2 font-bold text-sm focus:outline-none uppercase font-title text-shapes-box flex items-center'>
+                  <FiPlus
+                    className='bg-primary-mainLight mr-2 rounded-md hover:bg-primary-mainLight p-2 text-white  '
+                    size={34}
+                  />{' '}
+                  Marcar Consulta
+                </button>
+              </div>
+            </div>
           </div>
         </header>
       </main>
