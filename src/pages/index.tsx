@@ -1,9 +1,12 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import { Input } from '../components';
 
 export default function Home() {
+  const router = useRouter();
+
   return (
     <div>
       <Head>
@@ -53,6 +56,9 @@ export default function Home() {
                 className='w-44 font-title h-14 bg-shapes-lines font-bold text-sm uppercase text-texts-secondary
               hover:bg-shapes-complement rounded-md transition duration-150
               outline-none focus:outline-none'
+                onClick={() => {
+                  router.push('/dashboard');
+                }}
               >
                 Entrar
               </button>
