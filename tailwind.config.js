@@ -12,6 +12,7 @@ module.exports = {
         primary: {
           default: '#41414c',
           main: '#f1972c',
+          mainLight: '#FA9C2D',
         },
 
         secondary: {
