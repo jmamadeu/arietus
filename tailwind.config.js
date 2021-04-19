@@ -35,7 +35,9 @@ module.exports = {
           box: '#fcfdff',
           complement: '#ECEEF0',
           line: '#4F4F5B',
+          green: '#36B236'
         },
+
       },
     },
   },

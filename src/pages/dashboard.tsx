@@ -3,17 +3,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import { FiPlus } from 'react-icons/fi';
+import { FiPlus, FiEdit3, FiTrash } from 'react-icons/fi';
+import { ConsultationList } from '../components';
 
-import { Input } from '../components';
-import { type } from 'os';
-
-type SumaryBadgeProps = {
+type SummaryBadgeProps = {
   numberTotal: number;
   title: string;
 };
 
-const SumaryBadge = ({ numberTotal, title }: SumaryBadgeProps) => {
+const SummaryBadge = ({ numberTotal, title }: SummaryBadgeProps) => {
   return (
     <>
       <span className='mr-4 text-texts-complement font-body text-base'>
@@ -28,8 +26,6 @@ const SumaryBadge = ({ numberTotal, title }: SumaryBadgeProps) => {
 };
 
 export default function Home() {
-  const router = useRouter();
-
   return (
     <div>
       <Head>
@@ -65,22 +61,80 @@ export default function Home() {
 
             <div className='flex justify-between mt-4 items-center'>
               <div className='flex'>
-                <SumaryBadge numberTotal={12} title='Consultas no total' />
-                <SumaryBadge numberTotal={7} title='Em Andamento' />
-                <SumaryBadge numberTotal={5} title='Encerrados' />
+                <SummaryBadge numberTotal={12} title='Consultas no total' />
+                <SummaryBadge numberTotal={7} title='Em Andamento' />
+                <SummaryBadge numberTotal={5} title='Encerrados' />
+                <SummaryBadge numberTotal={1} title='Cancelados' />
               </div>
               <div>
                 <button className='bg-primary-main rounded-md hover:bg-primary-mainLight p-2 font-bold text-sm focus:outline-none uppercase font-title text-shapes-box flex items-center'>
                   <FiPlus
                     className='bg-primary-mainLight mr-2 rounded-md hover:bg-primary-mainLight p-2 text-white  '
                     size={34}
-                  />{' '}
+                  />
                   Marcar Consulta
                 </button>
               </div>
             </div>
           </div>
         </header>
+
+        <section className='flex justify-center'>
+          <div className='w-full max-w-5xl'>
+            <table
+              className='flex flex-col w-full'
+              style={{ marginTop: '-40px' }}
+            >
+              <ConsultationList
+                consultations={[
+                  {
+                    date: 'Hoje',
+                    id: '1',
+                    title: 'Ortopédia',
+                    status: 'Em Andamento',
+                    scheduler: {
+                      name: 'João Amadeu',
+                      phone: '9336784215',
+                    },
+                  },
+
+                  {
+                    date: 'Hoje',
+                    id: '1',
+                    title: 'Dentista',
+                    status: 'Cancelado',
+                    scheduler: {
+                      name: 'João Amadeu',
+                      phone: '9336784215',
+                    },
+                  },
+
+                  {
+                    date: 'Hoje',
+                    id: '1',
+                    title: 'Ginecologia',
+                    status: 'Em Espera',
+                    scheduler: {
+                      name: 'João Amadeu',
+                      phone: '9336784215',
+                    },
+                  },
+
+                  {
+                    date: 'Hoje',
+                    id: '1',
+                    title: 'Pediatria',
+                    status: 'Encerrado',
+                    scheduler: {
+                      name: 'João Amadeu',
+                      phone: '9336784215',
+                    },
+                  },
+                ]}
+              />
+            </table>
+          </div>
+        </section>
       </main>
     </div>
   );
